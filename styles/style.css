@@ -17,7 +17,11 @@ h2 {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  margin: 50px;
+  width: 33%;
+  height: 200px;
+  border-radius: 20px;
+  margin: 50px 33% 50px 33%;
+  border: 1px solid black;
   color: white;
 }
 
