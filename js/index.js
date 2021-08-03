@@ -1,16 +1,18 @@
 const color = document.querySelector("#color");
 const salida = document.querySelector("#salida");
 const colorStorage = localStorage.getItem("color") || "#FFFFFF";
-salida.style.background = colorStorage;
-salida.innerHTML = colorStorage;
+color.value = colorStorage;
 
-console.log(localStorage);
-color.addEventListener("input", () => {
-  const seleccion = color.value;
+const setColor = () => {
+  const value = color.value;
+  salida.innerHTML = value;
+  salida.style.background = value;
+};
 
-  salida.innerHTML = seleccion;
-  salida.style.background = seleccion;
-  salida.style.color = "#ffffff";
-  localStorage.clear();
-  localStorage.setItem("color", seleccion);
-});
+const saveValue = (value) => {
+  localStorage.setItem("color", value);
+};
+
+setColor();
+color.addEventListener("input", setColor);
+color.addEventListener("change", () => saveValue(color.value));
